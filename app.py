@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Load the trained model
 model = joblib.load('random_forest_model.pkl')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET'])
 def predict():
     data = request.get_json()
     features = np.array(data['features']).reshape(1, -1)
